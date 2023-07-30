@@ -1,15 +1,8 @@
-from tkinter import *
 import datetime as dt
-import time
+import flet as ft
 '''''
 время может отличаться от настоящего на сервере
 '''''
-# константы
-WINDOW_W = 400
-WINDOW_H = 1000
-BG_COLOR = '#C0C0C0'
-FG_COLOR = 'white'
-
 
 utc = {
     'RUSSIA CENTRAL':7,
@@ -38,85 +31,67 @@ utc = {
 }
 
 
-# Сервер : UTC для регионов
-servers = {
-    'RUSSIA CENTRAL':None,
-    'RUSSIA WEST':None,
-    'RUSSIA EAST':None,
-    'Africa':None,
-    'Chine':None,
-    'Singapore':None,
-    'Korea':None,
-    'Japane':None,
-    'Australia':None,
-    'Europe WEST':None,
-    'Europe SOUTH':None,
-    'Europe NORTH':None,
-    'Europe EAST':None,
-    'Europe CENTRAL':None,
-    'Middle East':None,
-    'ME - Dubai':None,
-    'South America':None,
-    'SA - colombia':None,
-    'North America WEST':None,
-    'North America SOUTH EAST':None,
-    'North America SOUTH':None,
-    'North America NORTH EAST':None,
-    'North America CENTRAL':None
-}
 
-text_list = []
-
-# форматирование времени до видо Ч:М:С
-def formated_time(server):
-    return server.strftime("%H:%M")
+def time_set(utc):
+    return (dt.datetime.utcnow() + dt.timedelta(hours=utc)).strftime("%H:%M")
 
 
-# присвоение значений для словаря servers из переменной time_test
-def set_time():
-    for i in servers:
-        servers[i] = dt.datetime.utcnow() + dt.timedelta(hours=utc[i])
-    return servers
+def main(page: ft.Page):
+    page.title = "EFT Servers time"
 
 
-# вывод сервера и времени в окне
-def output():
-    global text_list
-    for i in servers:
-        text = Label(root, text=i + "----------" + formated_time(servers[i]), font=('Arial 100', 12), bg=BG_COLOR)
-        text.pack()
-        text_list.append(text)
-    pass
+    t1 = ft.Text()
+    t2 = ft.Text()
+    t3 = ft.Text()
+    t4 = ft.Text()
+    t5 = ft.Text()
+    t6 = ft.Text()
+    t7 = ft.Text()
+    t8 = ft.Text()
+    t9 = ft.Text()
+    t10 = ft.Text()
+    t11 = ft.Text()
+    t12 = ft.Text()
+    t13 = ft.Text()
+    t14 = ft.Text()
+    t15 = ft.Text()
+    t16 = ft.Text()
+    t17 = ft.Text()
+    t18 = ft.Text()
+    t19 = ft.Text()
+    t20 = ft.Text()
+    t21 = ft.Text()
+    t22 = ft.Text()
 
 
-def del_():
-    global text_list
-    for i in text_list:
-        i.destroy()
-    text_list = []
-    pass
+    page.add(t1, t2, t3, t4, t5, t6, t7, t8, t9, t10, t11, t12, t13, t14, t15, t16, t17, t18, t19, t20, t21, t22)
+
+    while(True):
+        t1.value = f"RUSSIA CENTRAL {time_set(utc['RUSSIA CENTRAL'])}"
+        t2.value = f"RUSSIA WEST {time_set(utc['RUSSIA WEST'])}"
+        t3.value = f"Africa {time_set(utc['Africa'])}"
+        t4.value = f"Chine {time_set(utc['Chine'])}"
+        t5.value = f"Singapore {time_set(utc['Singapore'])}"
+        t6.value = f"Korea {time_set(utc['Korea'])}"
+        t7.value = f"Japane {time_set(utc['Japane'])}"
+        t8.value = f"Australia {time_set(utc['Australia'])}"
+        t9.value = f"Europe WEST {time_set(utc['Europe WEST'])}"
+        t10.value = f"Europe SOUTH {time_set(utc['Europe SOUTH'])}"
+        t11.value = f"Europe NORTH {time_set(utc['Europe NORTH'])}"
+        t12.value = f"Europe EAST {time_set(utc['Europe EAST'])}"
+        t13.value = f"Europe CENTRAL {time_set(utc['Europe CENTRAL'])}"
+        t14.value = f"Middle East {time_set(utc['Middle East'])}"
+        t15.value = f"ME - Dubai {time_set(utc['ME - Dubai'])}"
+        t16.value = f"South America {time_set(utc['South America'])}"
+        t17.value = f"SA - colombia {time_set(utc['SA - colombia'])}"
+        t18.value = f"North America WEST {time_set(utc['North America WEST'])}"
+        t19.value = f"North America SOUTH EAST {time_set(utc['North America SOUTH EAST'])}"
+        t20.value = f"North America SOUTH {time_set(utc['North America SOUTH'])}"
+        t21.value = f"North America NORTH EAST {time_set(utc['North America NORTH EAST'])}"
+        t22.value = f"North America CENTRAL {time_set(utc['North America CENTRAL'])}"
+        page.update()
 
 
-def update():
-    set_time()
-    output()
-    #root.after(1000, update)
-    pass
+ft.app(target=main)
 
-
-
-
-root = Tk()
-root.title("EFT Servers time")
-root.resizable(False, False)
-canvas = Canvas(root, bg=BG_COLOR, height=WINDOW_H, width=WINDOW_W)
-canvas.place(x=-10, y=-10)
-root.geometry('300x550')
-
-
-#set_time()
-#output()
-update()
-
-root.mainloop()
 
