@@ -8,4 +8,6 @@ Upcoming improvements to the program: <br>
 3. Indication of the current region as the first in the list [] <br>
 4. Program code optimization [] *new <br>
 
+
+The working program .exe is located in the dist folder <br>
 *The program was made by Nakweile.* <br>
