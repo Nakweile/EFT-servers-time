@@ -1,5 +1,4 @@
-# Escape From Tarkov <br>
-## Server time <br>
+# Escape From Tarkov Server time <br>
 ### The program was created for educational purposes. <br>
 ### The data in the program may not match the real time. <br>
 
